@@ -1,37 +1,38 @@
-mysql> create database edu_inst;
+mysql> create database Nivas;
 Query OK, 1 row affected (0.00 sec)
-
-mysql> use edu_inst;
+mysql> use nivas;
 Database changed
-mysql> create table student(Name char(20), Stu_id int(9), Course char(20));
-Query OK, 0 rows affected (0.02 sec)
+mysql> create table Soldier(Soldier_Name char(30),Soldierbattalion char(20),Soldier_Martial_Status char(20),SoldierAge int(3),Soldier_DOB varchar(12));
+Query OK, 0 rows affected (1.07 sec)
 
-mysql> desc student;
-+--------+----------+------+-----+---------+-------+
-| Field  | Type     | Null | Key | Default | Extra |
-+--------+----------+------+-----+---------+-------+
-| Name   | char(20) | YES  |     | NULL    |       |
-| Stu_id | int(9)   | YES  |     | NULL    |       |
-| Course | char(20) | YES  |     | NULL    |       |
-+--------+----------+------+-----+---------+-------+
-3 rows in set (0.01 sec)
+mysql> desc Soldier;
++------------------------+-------------+------+-----+---------+-------+
+| Field                  | Type        | Null | Key | Default | Extra |
++------------------------+-------------+------+-----+---------+-------+
+| Soldier_Name           | char(30)    | YES  |     | NULL    |       |
+| Soldierbattalion       | char(20)    | YES  |     | NULL    |       |
+| Soldier_Martial_Status | char(20)    | YES  |     | NULL    |       |
+| SoldierAge             | int(3)      | YES  |     | NULL    |       |
+| Soldier_DOB            | varchar(12) | YES  |     | NULL    |       |
++------------------------+-------------+------+-----+---------+-------+
+5 rows in set (0.17 sec)
 
-mysql> alter table student ADD Mobile_Number int(10);
-Query OK, 0 rows affected (0.02 sec)
+mysql> alter table Soldier add soldier_id int(6);
+Query OK, 0 rows affected (1.91 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> desc student;
-+---------------+----------+------+-----+---------+-------+
-| Field         | Type     | Null | Key | Default | Extra |
-+---------------+----------+------+-----+---------+-------+
-| Name          | char(20) | YES  |     | NULL    |       |
-| Stu_id        | int(9)   | YES  |     | NULL    |       |
-| Course        | char(20) | YES  |     | NULL    |       |
-| Mobile_Number | int(10)  | YES  |     | NULL    |       |
-+---------------+----------+------+-----+---------+-------+
-4 rows in set (0.01 sec)
+mysql> desc Soldier;
++------------------------+-------------+------+-----+---------+-------+
+| Field                  | Type        | Null | Key | Default | Extra |
++------------------------+-------------+------+-----+---------+-------+
+| Soldier_Name           | char(30)    | YES  |     | NULL    |       |
+| Soldierbattalion       | char(20)    | YES  |     | NULL    |       |
+| Soldier_Martial_Status | char(20)    | YES  |     | NULL    |       |
+| SoldierAge             | int(3)      | YES  |     | NULL    |       |
+| Soldier_DOB            | varchar(12) | YES  |     | NULL    |       |
+| soldier_id             | int(6)      | YES  |     | NULL    |       |
++------------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.07 sec)
 
-mysql> drop table student;
-Query OK, 0 rows affected (0.02 sec)
-mysql> desc student;
-ERROR 1146 (42S02): Table 'edu_inst.student' doesn't exist
+mysql> drop table Soldier;
+Query OK, 0 rows affected (0.16 sec)
