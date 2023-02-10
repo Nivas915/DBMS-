@@ -1,0 +1,50 @@
+mysql> use Harshith;
+Database changed
+
+mysql> create table soldier(Soldier_Id int(12),Name char(34),State char(20));
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> desc soldier;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| Soldier_Id | int(12)  | YES  |     | NULL    |       |
+| Name       | char(34) | YES  |     | NULL    |       |
+| State      | char(20) | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into soldier values(1922116944,'Nivas','Telangana');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into soldier values(1922116954,'Shashe','AP');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> desc soldier;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| Soldier_Id | int(12)  | YES  |     | NULL    |       |
+| Name       | char(34) | YES  |     | NULL    |       |
+| State      | char(20) | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select *from soldier;
++------------+--------+-----------+
+| Soldier_Id | Name   | State     |
++------------+--------+-----------+
+| 1922116944 | Nivas  | Telangana |
+| 1922116954 | Shashe | AP        |
++------------+--------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select State from soldier;
++-----------+
+| State     |
++-----------+
+| Telangana |
+| AP        |
++-----------+
+2 rows in set (0.03 sec)
+
