@@ -1,0 +1,79 @@
+
+mysql> create database Harshith;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use Harshith;
+Database changed
+mysql> create table Farmer(Name char(20) not null,Aadhar_Number int(12),State char(20) not null,Age int(3), Primary key(Aadhar_Number));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> desc Farmer;
++---------------+----------+------+-----+---------+-------+
+| Field         | Type     | Null | Key | Default | Extra |
++---------------+----------+------+-----+---------+-------+
+| Name          | char(20) | NO   |     | NULL    |       |
+| Aadhar_Number | int(12)  | NO   | PRI | 0       |       |
+| State         | char(20) | NO   |     | NULL    |       |
+| Age           | int(3)   | YES  |     | NULL    |       |
++---------------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create table Farmers(Name char(20) not null,Aadhar_Number int(12),State char(20) not null,Age int(3) not null, Primary key(Aadhar_Number));
+Query OK, 0 rows affected (0.23 sec)
+mysql> desc Farmers;
++---------------+----------+------+-----+---------+-------+
+| Field         | Type     | Null | Key | Default | Extra |
++---------------+----------+------+-----+---------+-------+
+| Name          | char(20) | NO   |     | NULL    |       |
+| Aadhar_Number | int(12)  | NO   | PRI | 0       |       |
+| State         | char(20) | NO   |     | NULL    |       |
+| Age           | int(3)   | NO   |     | NULL    |       |
++---------------+----------+------+-----+---------+-------+
+4 rows in set (0.03 sec)
+
+mysql> create table PM(Name char(20) not null,Aadhar_Number int(12),State char(20) not null,Age int(3) not null, Foreign key(Aadhar_Number) references Farmers(Aadhar_Number));
+Query OK, 0 rows affected (0.17 sec)
+
+mysql> desc PM;
++---------------+----------+------+-----+---------+-------+
+| Field         | Type     | Null | Key | Default | Extra |
++---------------+----------+------+-----+---------+-------+
+| Name          | char(20) | NO   |     | NULL    |       |
+| Aadhar_Number | int(12)  | YES  | MUL | NULL    |       |
+| State         | char(20) | NO   |     | NULL    |       |
+| Age           | int(3)   | NO   |     | NULL    |       |
++---------------+----------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> Alter table PM add Farmer_Id int(15) not null unique;
+Query OK, 0 rows affected (0.22 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc PM;
++---------------+----------+------+-----+---------+-------+
+| Field         | Type     | Null | Key | Default | Extra |
++---------------+----------+------+-----+---------+-------+
+| Name          | char(20) | NO   |     | NULL    |       |
+| Aadhar_Number | int(12)  | YES  | MUL | NULL    |       |
+| State         | char(20) | NO   |     | NULL    |       |
+| Age           | int(3)   | NO   |     | NULL    |       |
+| Farmer_Id     | int(15)  | NO   | PRI | NULL    |       |
++---------------+----------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> alter table PM add Land int(4) check (Land<2);
+Query OK, 0 rows affected (0.20 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc PM;
++---------------+----------+------+-----+---------+-------+
+| Field         | Type     | Null | Key | Default | Extra |
++---------------+----------+------+-----+---------+-------+
+| Name          | char(20) | NO   |     | NULL    |       |
+| Aadhar_Number | int(12)  | YES  | MUL | NULL    |       |
+| State         | char(20) | NO   |     | NULL    |       |
+| Age           | int(3)   | NO   |     | NULL    |       |
+| Farmer_Id     | int(15)  | NO   | PRI | NULL    |       |
+| Land          | int(4)   | YES  |     | NULL    |       |
++---------------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
